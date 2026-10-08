@@ -8,7 +8,7 @@ const Banner = () => {
     });
     return (
         <div>
-            <div className="lg:flex space-x-70 rounded-xl items-center  px-10 shadow-2xl">
+            <div className="lg:flex space-x-70 rounded-xl items-center px-10 shadow-2xl">
                 <div className="space-y-4">
                     <p className="bg-green-600 text-white w-60 p-2 rounded-2xl mb-5">{date}</p>
                     <h1 className="text-4xl font-bold">আজকের বাজারের দাম এক নজরে</h1>
@@ -17,7 +17,7 @@ const Banner = () => {
                 </div>
                 <div>
                     <Image
-                       className="w-full h-[400]"
+                       className="w-full h-[400] "
                         width={600}
                         height={600}
                         src={bannerImag}

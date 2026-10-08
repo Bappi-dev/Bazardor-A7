@@ -7,7 +7,7 @@ interface ICategory {
     nameBn: string
 }
 const CategoryList = async () => {
-       "use cache";
+    "use cache";
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories")
     const data: ICategory[] = await res.json()
     return (
