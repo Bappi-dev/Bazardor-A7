@@ -4,7 +4,7 @@ import MarqueeText from "react-marquee-text";
 const Marquee = async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products")
     const allProducts = await res.json()
-    console.log(allProducts);
+    // console.log(allProducts);
     return (
         <div className="grid gap-5">
 

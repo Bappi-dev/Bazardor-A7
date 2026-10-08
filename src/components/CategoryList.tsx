@@ -11,7 +11,7 @@ const CategoryList = async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories")
     const data: ICategory[] = await res.json()
     return (
-        <div className="shadow">
+        <div className="my-2">
             <div className="flex gap-8 text-xl container mx-auto py-2">
                 {
                     data.map(da => <Link href={`/category/${da.slug}`} key={da.id}><span>{da.icon}</span>{da.nameBn}</Link>)
