@@ -5,7 +5,7 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
     return (
         <div>
-            <Link href={'/product'}>
+            <Link href={`/sign-in/product/${product.id}`}>
                 <div className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     {/* Top */}
                     <div className="lg:flex items-center justify-between">

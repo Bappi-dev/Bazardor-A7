@@ -19,8 +19,8 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <Button className="bg-white text-black border">সাইন ইন</Button>
-                        <Button className="bg-green-500">সাইন আপ</Button>
+                        <Link href={'/sign-in'}> <Button className="bg-white text-black border">সাইন ইন</Button></Link>
+                        <Link href={'/sign-up'}><Button className="bg-green-500">সাইন আপ</Button></Link>
                     </div>
                 </div>
             </div>

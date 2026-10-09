@@ -38,9 +38,20 @@ const CategoryPage = async ({ params, }: { params: Promise<{ categorySlug: strin
                         <p className="text-gray-400">{products.length} টি পণ্যের আজকের দাম ও পরিবর্তন</p>
                     </div>
                 </div>
+                <div className=" border p-2 rounded-2xl bg-white mb-5">
+                    <div className="lg:flex justify-end gap-4 items-center">
+                        <h1 className="text-2xl ">সাজান :</h1>
+                        <select defaultValue="Pick a color" className="select border p-2 rounded-2xl">
+                            <option>ডিফল্ট</option>
+                            <option>{products[0].today}</option>
+                            <option>কম থেকে বেশি</option>
+                            <option>বেশি থেকে কম</option>
+                        </select>
+                    </div>
+                </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {products.map((product) => (
-                        <CategoryProducts key={product.id}  product={product} /> 
+                        <CategoryProducts key={product.id} product={product} />
                     ))}
                 </div>
             </div>
