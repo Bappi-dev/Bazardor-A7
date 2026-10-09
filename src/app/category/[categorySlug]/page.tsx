@@ -1,3 +1,5 @@
+import CategoryProducts from "@/components/CategoryProducts";
+
 interface IProduct {
     id: number;
     slug: string;
@@ -17,11 +19,7 @@ interface IProduct {
     };
 }
 
-const CategoryPage = async ({
-    params,
-}: {
-    params: Promise<{ categorySlug: string }>;
-}) => {
+const CategoryPage = async ({ params, }: { params: Promise<{ categorySlug: string }>; }) => {
     const { categorySlug } = await params;
 
     const res = await fetch(
@@ -40,51 +38,9 @@ const CategoryPage = async ({
                         <p className="text-gray-400">{products.length} টি পণ্যের আজকের দাম ও পরিবর্তন</p>
                     </div>
                 </div>
-
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {products.map((product) => (
-                        <div
-                            key={product.id}
-                            className="rounded-2xl border bg-white p-5 shadow-sm"
-                        >
-                            <div className="flex items-center gap-3">
-                                <span className="text-3xl">
-                                    {product.categoryIcon}
-                                </span>
-
-                                <div>
-                                    <h2 className="text-lg font-bold">
-                                        {product.nameBn}
-                                    </h2>
-
-                                    <p className="text-sm text-gray-500">
-                                        প্রতি {product.unit}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="mt-5">
-                                <p className="text-sm text-gray-500">
-                                    আজকের দাম
-                                </p>
-
-                                <p className="text-3xl font-bold">
-                                    ৳{product.today}
-                                </p>
-                            </div>
-
-                            <div className="mt-3">
-                                {product.change.dir === "up" ? (
-                                    <span className="text-green-600">
-                                        ↑ {product.change.pct}%
-                                    </span>
-                                ) : (
-                                    <span className="text-red-600">
-                                        ↓ {product.change.pct}%
-                                    </span>
-                                )}
-                            </div>
-                        </div>
+                        <CategoryProducts key={product.id}  product={product} /> 
                     ))}
                 </div>
             </div>
