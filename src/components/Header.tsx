@@ -1,4 +1,4 @@
-import { Button } from "@heroui/react";
+
 import { PiShoppingCartLight } from "react-icons/pi";
 import CategoryList from "./CategoryList";
 import Link from "next/link";
