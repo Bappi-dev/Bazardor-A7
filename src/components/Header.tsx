@@ -6,9 +6,9 @@ import Navbar from "./Navbar";
 
 
 const Header = () => {
-    // const date = new Date().toLocaleDateString("bn-BD", {
-    //     dateStyle: "full",
-    // });
+    const date = new Date().toLocaleDateString("bn-BD", {
+        dateStyle: "full",
+    });
 
     return (
         <div>
@@ -18,7 +18,7 @@ const Header = () => {
                         <span className="bg-green-500 rounded-xl p-2"><Link href="/"><PiShoppingCartLight size={40} /></Link></span>
                         <div className="items-center">
                             <h2 className="text-xl font-bold">বাজার দর</h2>
-                            {/* <p className="text-md">{date}</p> */}
+                            <p className="text-md">{date}</p>
                         </div>
                     </div>
                     <Navbar/>

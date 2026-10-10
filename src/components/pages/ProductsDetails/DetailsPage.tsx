@@ -1,7 +1,10 @@
 "use client"
-import React, { useEffect } from 'react';
-import { useSession } from '@/lib/auth-client';
-import { redirect, usePathname, useRouter } from 'next/navigation';
+
+import { useSession } from "@/lib/auth-client";
+import { redirect, usePathname, useRouter } from "next/navigation";
+
+import { useEffect } from "react";
+
 
 
 const DetailsPage  = ({product}) => {

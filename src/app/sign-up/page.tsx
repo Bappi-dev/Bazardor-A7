@@ -1,6 +1,7 @@
 "use client";
-import { signIn} from "@/lib/auth-client";
+import { signIn, signUp} from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 const SignUpPage = () => {
@@ -21,7 +22,12 @@ const SignUpPage = () => {
             callbackURL: "/",
         });
 
-        console.log(resData, error);
+        if(resData) {
+           toast.success("Already login Google"); 
+        }
+        if(error) {
+             toast.error(error.message || "অ্যাকাউন্ট তৈরি করা যায়নি!");
+        }
     };
 
     const signUpData = async () => {
@@ -31,7 +37,7 @@ const SignUpPage = () => {
     };
   
     const signUpGithub = async () => {
-    const data = await signIn.social({
+     await signIn.social({
         provider: "github"
     })
 }

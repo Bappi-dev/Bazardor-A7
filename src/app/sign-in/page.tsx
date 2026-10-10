@@ -2,6 +2,7 @@
 import { signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { usePathname } from "next/navigation";
+import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 const SignInPage = () => {
@@ -26,8 +27,30 @@ const SignInPage = () => {
             callbackURL: "/",
         });
 
-        console.log(resData, error);
+        if(resData) {
+            toast.success('Already login Google')
+        }
+        if(error){
+            console.log(error);
+        }
     };
+
+    const signInGoogle = async () => {
+        await signIn.social({
+            provider: "google"
+        })
+    }
+
+
+    const signInGithub = async () => {
+        await signIn.social({
+            provider: "google"
+        })
+        toast.success('Already login Github')
+    }
+
+
+
 
     return (
         <div className="bg-[#F0F5F0] py-28">
@@ -76,12 +99,12 @@ const SignInPage = () => {
                     </TextField>
                     <div className="flex gap-2">
                         <Button className="w-full" type="submit">
-                            অ্যাকাউন্ট তৈরি করুন
+                            সাইন ইন
                         </Button>
                     </div>
                     <div className="flex  gap-1">
-                        <Button className="bg-white text-black border border-gray-400 w-full"><FcGoogle /> Login Google</Button>
-                        <Button className="bg-white w-full text-black border border-gray-400"><FaGithub /> Login Github</Button>
+                        <Button onClick={signInGoogle} className="bg-white text-black border border-gray-400 w-full"><FcGoogle /> Login Google</Button>
+                        <Button onClick={signInGithub} className="bg-white w-full text-black border border-gray-400"><FaGithub /> Login Github</Button>
                     </div>
                 </Form>
             </div>

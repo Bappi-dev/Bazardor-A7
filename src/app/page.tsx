@@ -24,8 +24,7 @@ export interface IProduct {
 }
 
 export default async function Home() {
-   "use cache";
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products")
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
   const data = await res.json()
   const newProducts: IProduct[] = data.filter(da => da.change?.dir === "up");
   const downProducts: IProduct[] = data.filter(down => down.change?.dir === "down")

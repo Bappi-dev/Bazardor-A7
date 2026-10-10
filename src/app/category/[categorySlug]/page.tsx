@@ -23,8 +23,7 @@ interface IProduct {
 const CategoryPage = async ({ params, }: { params: Promise<{ categorySlug: string }>; }) => {
     const { categorySlug } = await params;
 
-    const res = await fetch(
-        `https://api.api-store.workers.dev/api/bazardor/products?category=${categorySlug}`
+    const res = await fetch( `https://api.abcz.workers.dev/api/bazardor/products?category=${categorySlug}`
     );
 
     const products: IProduct[] = await res.json();
