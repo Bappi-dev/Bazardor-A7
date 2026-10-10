@@ -1,20 +1,24 @@
- 'use client'
+'use client'
+import { IProduct } from "@/app/page";
 import { useSession } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const ProductCard = ({ product }) => {
-const { data: session, isPending } = useSession();
+export interface ProductCardProps {
+    product: IProduct;
+}
+const ProductCard = ({ product }:ProductCardProps) => {
+    const { data: session  } = useSession();
 
-const phatnam = usePathname()
-console.log(phatnam);
+    const phatnam = usePathname()
+    console.log(phatnam);
 
-// console.log(product);
+    // console.log(product);
 
     return (
         <div>
-        
-            <Link href={`${session?.user ? `/product/${product.id}`: '/sign-in'}`}>
+
+            <Link href={`${session?.user ? `/product/${product.id}` : '/sign-in'}`}>
                 <div className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     {/* Top */}
                     <div className="lg:flex items-center justify-between">

@@ -1,9 +1,12 @@
 
+import { IProduct } from "@/app/page";
 import MarqueeText from "react-marquee-text";
+
+
 
 const Marquee = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
-    const allProducts = await res.json()
+    const allProducts:IProduct[] = await res.json()
     // console.log(allProducts);
     return (
         <div className="grid gap-5">

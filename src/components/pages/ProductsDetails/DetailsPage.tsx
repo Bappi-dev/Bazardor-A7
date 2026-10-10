@@ -1,5 +1,6 @@
 "use client"
 
+import { ProductCardProps } from "@/components/ProductCard";
 import { useSession } from "@/lib/auth-client";
 import { redirect, usePathname, useRouter } from "next/navigation";
 
@@ -7,7 +8,7 @@ import { useEffect } from "react";
 
 
 
-const DetailsPage  = ({product}) => {
+const DetailsPage  = ({product}:ProductCardProps) => {
 
     const { data: session, isPending } = useSession();
     const router = useRouter()

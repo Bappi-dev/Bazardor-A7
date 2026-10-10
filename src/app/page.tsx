@@ -25,7 +25,7 @@ export interface IProduct {
 
 export default async function Home() {
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
-  const data = await res.json()
+  const data:IProduct[] = await res.json()
   const newProducts: IProduct[] = data.filter(da => da.change?.dir === "up");
   const downProducts: IProduct[] = data.filter(down => down.change?.dir === "down")
 

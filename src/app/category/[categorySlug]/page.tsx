@@ -1,7 +1,7 @@
-import CategoryProducts from "@/components/CategoryProducts";
+
 import ProductCard from "@/components/ProductCard";
 
-interface IProduct {
+export interface IProduct {
     id: number;
     slug: string;
     nameBn: string;
