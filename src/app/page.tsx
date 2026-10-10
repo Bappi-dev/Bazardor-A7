@@ -28,7 +28,7 @@ export default async function Home() {
   const data = await res.json()
   const newProducts: IProduct[] = data.filter(da => da.change?.dir === "up");
   const downProducts: IProduct[] = data.filter(down => down.change?.dir === "down")
-  console.log(downProducts);
+
   return (
     <div className="bg-[#F0F5F0] py-8">
       <div className="container mx-auto my-10">

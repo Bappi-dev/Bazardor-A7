@@ -1,7 +1,16 @@
 "use client";
+import { signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { usePathname } from "next/navigation";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 const SignInPage = () => {
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+    // const params = useParams()
+    // console.log("asdf",params);
+    const phatnam = usePathname()
+    console.log("formpa", phatnam);
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data: Record<string, string> = {};
@@ -10,6 +19,14 @@ const SignInPage = () => {
             data[key] = value.toString();
         });
         console.log(data);
+
+        const { data: resData, error } = await signIn.email({
+            email: data.email,
+            password: data.password,
+            callbackURL: "/",
+        });
+
+        console.log(resData, error);
     };
 
     return (
@@ -61,6 +78,10 @@ const SignInPage = () => {
                         <Button className="w-full" type="submit">
                             অ্যাকাউন্ট তৈরি করুন
                         </Button>
+                    </div>
+                    <div className="flex  gap-1">
+                        <Button className="bg-white text-black border border-gray-400 w-full"><FcGoogle /> Login Google</Button>
+                        <Button className="bg-white w-full text-black border border-gray-400"><FaGithub /> Login Github</Button>
                     </div>
                 </Form>
             </div>

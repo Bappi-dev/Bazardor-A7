@@ -1,7 +1,10 @@
 "use client";
+import { signIn} from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 const SignUpPage = () => {
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data: Record<string, string> = {};
@@ -10,8 +13,28 @@ const SignUpPage = () => {
             data[key] = value.toString();
         });
         console.log(data);
+
+        const { data: resData, error } = await signUp.email({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            callbackURL: "/",
+        });
+
+        console.log(resData, error);
     };
 
+    const signUpData = async () => {
+        await signIn.social({
+            provider: "google",
+        });
+    };
+  
+    const signUpGithub = async () => {
+    const data = await signIn.social({
+        provider: "github"
+    })
+}
     return (
         <div className="bg-[#F0F5F0] py-8">
             <div className="flex flex-col items-center">
@@ -94,8 +117,12 @@ const SignUpPage = () => {
                     </TextField>
                     <div className="flex gap-2">
                         <Button className="w-full" type="submit">
-                           অ্যাকাউন্ট তৈরি করুন
+                            অ্যাকাউন্ট তৈরি করুন
                         </Button>
+                    </div>
+                    <div className="flex  gap-2">
+                        <Button onClick={signUpData} className="bg-white text-black border border-gray-400 w-full"><FcGoogle /> Login Google</Button>
+                        <Button onClick={signUpGithub} className="bg-white w-full text-black border border-gray-400"><FaGithub /> Login Github</Button>
                     </div>
                 </Form>
             </div>

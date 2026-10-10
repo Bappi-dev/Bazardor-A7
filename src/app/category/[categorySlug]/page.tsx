@@ -1,4 +1,5 @@
 import CategoryProducts from "@/components/CategoryProducts";
+import ProductCard from "@/components/ProductCard";
 
 interface IProduct {
     id: number;
@@ -51,7 +52,7 @@ const CategoryPage = async ({ params, }: { params: Promise<{ categorySlug: strin
                 </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {products.map((product) => (
-                        <CategoryProducts key={product.id} product={product} />
+                        <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
             </div>

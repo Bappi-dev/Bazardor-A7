@@ -1,11 +1,20 @@
+ 'use client'
+import { useSession } from "@/lib/auth-client";
 import Link from "next/link";
-
-
+import { usePathname } from "next/navigation";
 
 const ProductCard = ({ product }) => {
+const { data: session, isPending } = useSession();
+
+const phatnam = usePathname()
+console.log(phatnam);
+
+// console.log(product);
+
     return (
         <div>
-            <Link href={`/sign-in/product/${product.id}`}>
+        
+            <Link href={`${session?.user ? `/product/${product.id}`: '/sign-in'}`}>
                 <div className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     {/* Top */}
                     <div className="lg:flex items-center justify-between">
