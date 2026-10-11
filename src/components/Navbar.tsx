@@ -46,28 +46,7 @@ const Navbar = (): React.JSX.Element => {
         {/* Logo */}
 
 
-        {/* Navigation Links */}
-        {/* <div className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              (link.href !== "/" && pathname.startsWith(`${link.href}/`));
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 ${
-                  isActive
-                    ? "bg-emerald-50 text-emerald-700"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-emerald-700"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </div> */}
+        
 
         {/* Authentication */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">

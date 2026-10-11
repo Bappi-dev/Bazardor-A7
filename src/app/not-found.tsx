@@ -29,8 +29,8 @@ const NotFoundPage = () => {
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-gray-600 sm:text-base">
-                    The page you are looking for doesn't exist or may have been moved.
-                    Let's get you back on the right track!
+                    The page you are looking for doesnt exist or may have been moved.
+                    Lets get you back on the right track!
                 </p>
 
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
