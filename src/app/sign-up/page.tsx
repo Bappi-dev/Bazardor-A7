@@ -1,5 +1,6 @@
 "use client";
 
+import { handleSocialSignIn } from "@/components/pages/SocialLogin/handleSocialSignIn";
 import { signIn, signUp } from "@/lib/auth-client";
 import {
   Button,
@@ -10,12 +11,15 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage = (): React.JSX.Element => {
+  const router = useRouter()
+  const call = "/"
   const [isLoading, setIsLoading] = useState(false);
   const [socialLoading, setSocialLoading] = useState<
     "google" | "github" | null
@@ -53,7 +57,8 @@ const SignUpPage = (): React.JSX.Element => {
       }
 
       if (data) {
-        toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+          toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+          router.push("/")
       }
     } catch {
       toast.error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
@@ -62,26 +67,26 @@ const SignUpPage = (): React.JSX.Element => {
     }
   };
 
-  const handleSocialSignUp = async (
-    provider: "google" | "github"
-  ) => {
-    try {
-      setSocialLoading(provider);
+  // const handleSocialSignUp = async (
+  //   provider: "google" | "github"
+  // ) => {
+  //   try {
+  //     setSocialLoading(provider);
 
-      const { error } = await signIn.social({
-        provider,
-        callbackURL: "/",
-      });
+  //     const { error } = await signIn.social({
+  //       provider,
+  //       callbackURL: "/",
+  //     });
 
-      if (error) {
-        toast.error(error.message || "সোশ্যাল সাইন আপ ব্যর্থ হয়েছে!");
-        setSocialLoading(null);
-      }
-    } catch {
-      toast.error("সাইন আপ করা যায়নি। আবার চেষ্টা করুন।");
-      setSocialLoading(null);
-    }
-  };
+  //     if (error) {
+  //       toast.error(error.message || "সোশ্যাল সাইন আপ ব্যর্থ হয়েছে!");
+  //       setSocialLoading(null);
+  //     }
+  //   } catch {
+  //     toast.error("সাইন আপ করা যায়নি। আবার চেষ্টা করুন।");
+  //     setSocialLoading(null);
+  //   }
+  // };
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-[#F0F5F0] via-white to-emerald-50 px-4 py-12">
@@ -113,7 +118,7 @@ const SignUpPage = (): React.JSX.Element => {
           <Button
             type="button"
             isDisabled={isLoading || socialLoading !== null}
-            onPress={() => handleSocialSignUp("google")}
+            onPress={() => handleSocialSignIn("google", call, setSocialLoading)}
             className="h-12 rounded-xl border-gray-200 bg-white font-semibold text-gray-700 transition hover:border-emerald-300 hover:bg-emerald-50"
           >
             <FcGoogle className="text-xl" />
@@ -123,7 +128,7 @@ const SignUpPage = (): React.JSX.Element => {
           <Button
             type="button"
             isDisabled={isLoading || socialLoading !== null}
-            onPress={() => handleSocialSignUp("github")}
+            onPress={() => handleSocialSignIn("github", call, setSocialLoading)}
             className="h-12 rounded-xl border-gray-200 bg-white font-semibold text-gray-700 transition hover:border-emerald-300 hover:bg-emerald-50"
           >
             <FaGithub className="text-xl" />

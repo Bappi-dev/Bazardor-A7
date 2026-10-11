@@ -14,7 +14,7 @@ const Marquee = async () => {
             <MarqueeText className="px-4" direction='right' duration={10}>
                 {
                     allProducts.map(all => <div className="px-4 border-l py-2 " key={all.id}>
-                        <div className="flex space-x-2">
+                        <div className="lg:flex space-x-2">
                             <div className="flex gap-1">
                                 <p>{all.image}</p>
                                 <p>{all.nameBn}</p>

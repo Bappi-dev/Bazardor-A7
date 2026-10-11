@@ -1,5 +1,4 @@
-
-import ProductCard from "@/components/ProductCard";
+import CategoryProducts from "@/components/CategoryProducts";
 
 export interface IProduct {
     id: number;
@@ -23,37 +22,25 @@ export interface IProduct {
 const CategoryPage = async ({ params, }: { params: Promise<{ categorySlug: string }>; }) => {
     const { categorySlug } = await params;
 
-    const res = await fetch( `https://api.abcz.workers.dev/api/bazardor/products?category=${categorySlug}`
-    );
-
-    const products: IProduct[] = await res.json();
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${categorySlug}`);
+    const data = await res.json();
+    
+    
+    const products: IProduct[] = Array.isArray(data) ? data : (data.products || data.data || []);
 
     return (
-        <div className="bg-[#F0F5F0]">
+        <div className="bg-[#F0F5F0] min-h-screen">
             <div className="container mx-auto py-8">
-                <div className="lg:flex border p-4 rounded-2xl bg-white mb-6 font-bold">
-                    <h2 className="text-6xl">{products[0]?.image}</h2>
+                <div className="lg:flex border p-4 rounded-2xl bg-white mb-6 font-bold items-center gap-4 shadow-sm">
+                    <span className="text-5xl">{products[0]?.categoryIcon || products[0]?.image || "🛒"}</span>
                     <div>
-                        <p className="font-extrabold text-xl">{products[0]?.categoryNameBn}</p>
+                        <p className="font-extrabold text-xl">{products[0]?.categoryNameBn || "ক্যাটাগরি"}</p>
                         <p className="text-gray-400">{products.length} টি পণ্যের আজকের দাম ও পরিবর্তন</p>
                     </div>
                 </div>
-                <div className=" border p-2 rounded-2xl bg-white mb-5">
-                    <div className="lg:flex justify-end gap-4 items-center">
-                        <h1 className="text-2xl ">সাজান :</h1>
-                        <select defaultValue="Pick a color" className="select border p-2 rounded-2xl">
-                            <option>ডিফল্ট</option>
-                            <option>{products[0].today}</option>
-                            <option>কম থেকে বেশি</option>
-                            <option>বেশি থেকে কম</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    {products.map((product) => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
+                
+              
+                <CategoryProducts  product={products} />
             </div>
         </div>
     );

@@ -20,14 +20,8 @@ const ProductDetailsPage = async ({ params }: ProductPageProps) => {
 
   const product: IProduct = await res.json();
 
-
- 
-  
-
   return (
     <main className="min-h-screen bg-[#f0f5f0] px-3 py-6 sm:px-6 lg:px-10">
-
-
       
      <DetailsPage product={product}/>
   

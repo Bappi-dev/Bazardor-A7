@@ -6,7 +6,7 @@ import { signOut, useSession } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { FaStore, FaUserCircle } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = (): React.JSX.Element => {
   const { data: session, isPending } = useSession();
@@ -42,19 +42,19 @@ const Navbar = (): React.JSX.Element => {
 
   return (
     <header className="sticky top-0 z-50  border-emerald-100/80 bg-white/85">
-      <nav className="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <nav className="mx-auto lg:flex min-h-[76px] max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
 
 
         
 
         {/* Authentication */}
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="lg:flex shrink-0 items-center gap-2 sm:gap-3">
           {isPending ? (
             <div className="h-10 w-24 animate-pulse rounded-xl bg-gray-100" />
           ) : session?.user ? (
             <>
-              <div className="hidden items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 sm:flex">
+              <div className="hidden sm:items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 sm:flex">
                 <FaUserCircle className="text-xl text-emerald-600" />
 
                 <div className="max-w-32">

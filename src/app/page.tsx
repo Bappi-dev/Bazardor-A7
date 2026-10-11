@@ -25,7 +25,7 @@ export interface IProduct {
 
 export default async function Home() {
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
-  const data:IProduct[] = await res.json()
+  const data: IProduct[] = await res.json()
   const newProducts: IProduct[] = data.filter(da => da.change?.dir === "up");
   const downProducts: IProduct[] = data.filter(down => down.change?.dir === "down")
 
@@ -39,7 +39,7 @@ export default async function Home() {
             {/* up products */}
             {
               newProducts.slice(0, 6).map(product => <div key={product.id}>
-                <ProductCard product={product} />
+                  <ProductCard product={product} />
               </div>)
             }
           </div>
@@ -49,18 +49,18 @@ export default async function Home() {
             <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 ">
               {
                 downProducts.slice(0, 6).map(product => <div key={product.id}>
-                  <ProductCard product={product} />
+                    <ProductCard product={product} />
                 </div>)
               }
             </div>
             <div className="mt-10">
               {/* All products */}
-                  <h2 className="text-2xl font-extrabold">সব পণ্য</h2>
-                  <p className="text-md font-">মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
+              <h2 className="text-2xl font-extrabold">সব পণ্য</h2>
+              <p className="text-md font-">মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
               <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                   data.map(product => <div key={product.id}>
-                    <ProductCard product={product} />
+                      <ProductCard product={product} />
                   </div>)
                 }
               </div>
