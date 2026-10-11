@@ -1,7 +1,7 @@
 "use client";
 
 import { handleSocialSignIn } from "@/components/pages/SocialLogin/handleSocialSignIn";
-import { signIn, signUp } from "@/lib/auth-client";
+import {  signUp } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -11,7 +11,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";

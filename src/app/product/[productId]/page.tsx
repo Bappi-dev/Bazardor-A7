@@ -3,9 +3,6 @@ import { IProduct, ProductPageProps } from "@/components/pages/ProductsDetails/T
 
 
 
-
-
-
 const ProductDetailsPage = async ({ params }: ProductPageProps) => {
   const { productId } = await params;
 

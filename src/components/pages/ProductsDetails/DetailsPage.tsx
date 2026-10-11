@@ -21,21 +21,13 @@ const DetailsPage  = ({product}:ProductCardProps) => {
   
 
 useEffect(() => {
-        // Only check authentication AFTER the session finishes loading
+       
         if (!isPending && !session?.user) {
             redirect(`/sign-in?callbackUrl=${encodeURIComponent(pathname)}`);
         }
     }, [session, isPending, pathname, router]);
 
-    // // Show your custom loading component while checking session data
-    // if (isPending) {
-    //     return <Loading />;
-    // }
-
-    // // Prevent rendering the page content if user is not logged in (while redirect happens)
-    // if (!session?.user) {
-    //     return null;
-    // }
+   
 
  
     const prices = [

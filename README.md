@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+1.Project name: bazardor-a7
+2.Short description:ডিফল্ট, দাম: কম থেকে বেশি, দাম: বেশি থেকে কম
+3.Technologies used: next.js , tailwind, typescript, heroui, daisyui, mongodb, aunthencation, react host, react icons, toastfy.
+
+
+4.5 key features of the project:=>
+
+1.Real-Time Market Price Tracking – View daily product prices and compare them with previous prices.
+
+2.Category-Based Product Browsing – Explore products by category to find essential grocery items easily.
+
+3.Price Comparison – Compare today's prices with yesterday's, last week's, and last month's prices.
+
+4.Smart Product Sorting – Sort products by price from low to high or high to low.
+
+5.Secure Authentication – Sign up and sign in using email and password, Google, or GitHub to access protected product details.

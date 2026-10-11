@@ -35,10 +35,7 @@ const Navbar = (): React.JSX.Element => {
     }
   };
 
-  const navLinks = [
-    { name: "হোম", href: "/" },
-    { name: "বাজারদর", href: "/product" },
-  ];
+ 
 
   return (
     <header className="sticky top-0 z-50  border-emerald-100/80 bg-white/85">
@@ -46,7 +43,7 @@ const Navbar = (): React.JSX.Element => {
         {/* Logo */}
 
 
-        
+
 
         {/* Authentication */}
         <div className="lg:flex shrink-0 items-center gap-2 sm:gap-3">
@@ -57,12 +54,20 @@ const Navbar = (): React.JSX.Element => {
               <div className="hidden sm:items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 sm:flex">
                 <FaUserCircle className="text-xl text-emerald-600" />
 
-                <div className="max-w-32">
-                  <p className="text-[10px] text-gray-500 font-bold">স্বাগতম</p>
+
+                  <p className="text-[10px] text-gray-500 font-bold">
+                    স্বাগতম
+                  </p>
+
+                <Link
+                  href="/my-Profile"
+                  className="max-w-32 hover:opacity-80 transition"
+                >
                   <p className="truncate text-sm font-bold text-gray-800">
                     {session.user.name}
                   </p>
-                </div>
+                </Link>
+
               </div>
 
               <Button
@@ -80,8 +85,8 @@ const Navbar = (): React.JSX.Element => {
                 <Button
 
                   className={`h-10 rounded-xl border-emerald-200 px-3 font-semibold transition hover:bg-emerald-50 sm:px-5 ${pathname === "/sign-in"
-                      ? "bg-emerald-50 text-emerald-700"
-                      : "bg-white text-gray-700"
+                    ? "bg-emerald-50 text-emerald-700"
+                    : "bg-white text-gray-700"
                     }`}
                 >
                   সাইন ইন
